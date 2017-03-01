@@ -8,12 +8,13 @@ def print_matrix( matrix ):
         print
             
 def ident( matrix ):
-    m = []
-    m.append([1,0,0,0])
-    m.append([0,1,0,0])
-    m.append([0,0,1,0])
-    m.append([0,0,0,1])
-    return m
+    for c in range(len(matrix)):
+        for r in range(len(matrix[0])):
+            if c==r:
+                matrix[c][r] = 1
+            else:
+                matrix[c][r] = 0
+    return matrix
 
 def scalar_mult( matrix, s ):
     for c in range(len(matrix)):
@@ -28,8 +29,8 @@ def matrix_mult( m1, m2 ):
         m.append([])
         for r2 in range(len(m2[0])):
             res = 0
-            for r1 in range(len(m1[0])):
-                res += (m1[c1][r1]*m2[r2][c1])
+            for c2 in range(len(m2)):
+                res += (m1[c1][c2]*m2[c2][r2])
             m[c1].append(res)
     return m
                 

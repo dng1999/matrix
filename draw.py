@@ -7,9 +7,12 @@ def draw_lines( matrix, screen, color ):
     for l in range(0,size,2):
         x0 = matrix[l][0]
         y0 = matrix[l][1]
-        x0 = matrix[l+1][0]
-        y0 = matrix[l+1][1]
+        x1 = matrix[l+1][0]
+        y1 = matrix[l+1][1]
         draw_line(x0,y0,x1,y1,screen,color)
+        color[1] = (color[0]*y1)%256
+        color[0] = (color[2] / 10)*23 % 256
+        color[2] = l/3
         
 
 def add_edge( matrix, x0, y0, z0, x1, y1, z1 ):

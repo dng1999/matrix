@@ -37,5 +37,10 @@ matrix = matrix_mult(m1,m2)
 print("Printing result.")
 print_matrix(matrix)
 
-#draw_lines( matrix, screen, color )
-#display(screen)
+matrix = new_matrix()
+for i in range(500):
+    add_edge(matrix,i,((i*7-3)%402)+53,0,(i+129)/3,250,0)
+
+draw_lines( matrix, screen, color )
+display(screen)
+#save_extension(screen, "pic.png")
